@@ -4,3 +4,9 @@ services:
 
 before_install:
     - docker build -t shanequ/docker-react  -f Deckerfile.dev .
+
+# -e: set up environment variable:
+#     CI=true: indicate running in CI mode
+# --coverage to show test coverage
+script:
+    - docker run -e CI=true shanequ/docker-react npm run test
